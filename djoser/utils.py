@@ -27,7 +27,7 @@ def logout_user(request):
         user_logged_out.send(
             sender=request.user.__class__, request=request, user=request.user
         )
-    if settings.CREATE_SESSION_ON_LOGIN:
+    if settings.DELETE_SESSION_ON_LOGOUT:
         logout(request)
 
 

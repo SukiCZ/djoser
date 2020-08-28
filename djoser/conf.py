@@ -76,6 +76,7 @@ default_settings = {
     "CONSTANTS": ObjDict({"messages": "djoser.constants.Messages"}),
     "LOGOUT_ON_PASSWORD_CHANGE": False,
     "CREATE_SESSION_ON_LOGIN": False,
+    "DELETE_SESSION_ON_LOGOUT": False,
     "SOCIAL_AUTH_TOKEN_STRATEGY": "djoser.social.token.jwt.TokenStrategy",
     "SOCIAL_AUTH_ALLOWED_REDIRECT_URIS": [],
     "HIDE_USERS": True,
