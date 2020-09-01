@@ -165,7 +165,7 @@ class UserViewSet(viewsets.ModelViewSet):
         self.perform_destroy(instance)
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-    @action(["get", "put", "patch", "delete"], detail=False)
+    @action(["get", "put", "patch", "delete", "options"], detail=False)
     def me(self, request, *args, **kwargs):
         self.get_object = self.get_instance
         if request.method == "GET":
@@ -176,6 +176,8 @@ class UserViewSet(viewsets.ModelViewSet):
             return self.partial_update(request, *args, **kwargs)
         elif request.method == "DELETE":
             return self.destroy(request, *args, **kwargs)
+        elif request.method == 'OPTIONS':
+            return super().options(request, *args, **kwargs)
 
     @action(["post"], detail=False)
     def activation(self, request, *args, **kwargs):

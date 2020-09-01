@@ -79,6 +79,11 @@ class UserViewSetMeTest(
         self.assert_emails_in_mailbox(1)
         self.assert_email_exists(to=[data["email"]])
 
+    def test_option_request(self):
+        response = self.client.options(self.base_url)
+
+        self.assert_status_equal(response, status.HTTP_200_OK)
+
     @override_settings(
         DJOSER=dict(
             settings.DJOSER,
